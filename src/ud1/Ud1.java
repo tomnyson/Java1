@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 /**
  * PK01991	Phan Thanh Thắng PK01996	Phạm Xuân Hướng PK02125	Lục Thị Quỳnh Nga
- * PK02011	Lê Đình Lực /** PK01989	Đặng Thế Nguyên PK01876	Hoàng Văn Thành
- * PT163LT	PK02011	Lê Đình Lực chép 20 lần cách khai báo các kiểu dữ
+ * PK02011	Lê Đình Lực /** PK01989	Đặng Thế Nguyên
+ * PT163LT	PK02011	Lê Đình Lực chép 20*2 lần cách khai báo các kiểu dữ
  *
  * @author tomnyson
  */
