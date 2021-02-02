@@ -6,6 +6,8 @@
 package ud1;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -14,7 +16,8 @@ import java.util.Scanner;
  */
 public class SinhVienManager {
 
-    public ArrayList<SinhVien> dsSinhvien;
+    // cái này để khởi tạo ds sinh viên rỗng ban đầu:
+    public ArrayList<SinhVien> dsSinhvien = new ArrayList<SinhVien>();
 
     public SinhVienManager(ArrayList<SinhVien> dsSinhvien) {
         this.dsSinhvien = dsSinhvien;
@@ -24,18 +27,17 @@ public class SinhVienManager {
         return dsSinhvien;
     }
 
+    public SinhVienManager() {
+    }
+
     public void setDsSinhvien(ArrayList<SinhVien> dsSinhvien) {
         this.dsSinhvien = dsSinhvien;
     }
 
+    // them sinh vien vao ds sach
     public void ThemSinhVien() {
-        Scanner scanner = new Scanner(System.in);
-        String name;
-        Double dtb;
-        System.out.println("Nhập Tên Sinh Viên");
-        name = scanner.nextLine();
-        dtb = scanner.nextDouble();
-        SinhVien sv = new SinhVien(name, dtb);
+        SinhVien sv = new SinhVien();
+        sv.NhapThongTin();
         dsSinhvien.add(sv);
     }
 
@@ -51,7 +53,7 @@ public class SinhVienManager {
 
     public void timTheoHoTen(String ten) {
         for (SinhVien sinhVien : dsSinhvien) {
-            if (sinhVien.getTenSV().equals(ten)) {
+            if (sinhVien.getTenSV().equalsIgnoreCase(ten)) {
                 sinhVien.xuatThongTin();
             }
         }
@@ -61,7 +63,7 @@ public class SinhVienManager {
         Scanner scanner = new Scanner(System.in);
         String luachon;
         for (SinhVien sinhVien : dsSinhvien) {
-            if (sinhVien.getTenSV().equals(ten)) {
+            if (sinhVien.getTenSV().equalsIgnoreCase(ten)) {
                 sinhVien.xuatThongTin();
                 System.out.println("Bạn muốn sủa không");
                 luachon = scanner.nextLine();
@@ -85,5 +87,23 @@ public class SinhVienManager {
                 }
             }
         }
+    }
+
+    public void sapXepByDiem() {
+        Collections.sort(dsSinhvien, new Comparator<SinhVien>() {
+            @Override
+            public int compare(SinhVien o1, SinhVien o2) {
+                return Double.valueOf(o1.getDiemTB()).compareTo(Double.valueOf(o2.getDiemTB()));
+            }
+        });
+    }
+
+    public void sapXepByTen() {
+        Collections.sort(dsSinhvien, new Comparator<SinhVien>() {
+            @Override
+            public int compare(SinhVien o1, SinhVien o2) {
+                return o1.getTenSV().compareTo(o2.getTenSV());
+            }
+        });
     }
 }

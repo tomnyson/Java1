@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author tomnyson
  */
-public class SinhVien {
+public class SinhVien implements Comparable< SinhVien> {
 
     /**
      * sinh vien gồn tên/ điểm t
@@ -40,10 +40,10 @@ public class SinhVien {
     }
 
     public void setDiemTB(double diemTB) {
-        if(diemTB > 0 && this.diemTB <= 10) {
-           this.diemTB = diemTB;
+        if (diemTB > 0 && this.diemTB <= 10) {
+            this.diemTB = diemTB;
         }
-       
+
     }
 
     public void xuatThongTin() {
@@ -74,4 +74,15 @@ public class SinhVien {
         }
         return hocluc;
     }
+
+    @Override
+    public String toString() {
+        return "SinhVien{" + "tenSV=" + tenSV + ", diemTB=" + diemTB + '}';
+    }
+
+    @Override
+    public int compareTo(SinhVien o) {
+        return Double.valueOf(this.getDiemTB()).compareTo(Double.valueOf(o.getDiemTB()));
+    }
+
 }
