@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author tomnyson
  */
-public class NhanVien {
+abstract public class NhanVien {
     public String ten;
     public double luong;
 
@@ -35,6 +35,8 @@ public class NhanVien {
     public void setLuong(double luong) {
         this.luong = luong;
     }
+    abstract public double tinhluong();
+    
     public void nhap() {
       Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập tên nhân viên");
@@ -46,5 +48,6 @@ public class NhanVien {
         System.out.println("tên nhân viên" + this.ten);
         System.out.println("lương nhân viên" + this.luong);
     }
+    
     
 }

@@ -28,8 +28,14 @@ public class NhanVienIT extends NhanVien {
         this.thuongduan = scanner.nextDouble();
     }
 
+    @Override
     public void xuat() {
-        super.xuat();
+        System.out.println("Đây là nhân viên it");
         System.out.println("Thưởng dự án" + this.thuongduan);
+    }
+
+    @Override
+    public double tinhluong() {
+        return super.getLuong() + this.thuongduan;
     }
 }
